@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Uma locadora retrô de filmes e jogos. Escolha seus favoritos e alugue!">
+    <title>REWIND — Locadora Retrô</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="topbar">
+        <a href="#" class="logo">RE<span>:</span>WIND</a>
+
+        <nav class="navigation">
+            <a href="#inicio">Início</a>
+            <a href="#catalogo">Catálogo</a>
+            <a href="#sobre">Sobre</a>
+        </nav>
+
+        <button class="cart-button" id="openCart">
+            <span>MINHA SACOLA</span>
+            <span class="cart-number" id="cartCount">0</span>
+        </button>
+    </header>
+
+    <main>
+        <!-- BANNER PRINCIPAL -->
+        <section class="hero" id="inicio">
+            <div class="hero-content">
+                <span class="hero-label">LOCADORA • FILMES • GAMES</span>
+
+                <h1>O PASSADO<br>É O NOVO<br><span>PLAY.</span></h1>
+
+                <p>
+                    Grandes histórias nunca saem de moda.
+                    Escolha seu próximo favorito e aperte o play.
+                </p>
+
+                <a href="#catalogo" class="hero-button">
+                    EXPLORAR CATÁLOGO ↗
+                </a>
+            </div>
+
+            <div class="hero-art">
+                <div class="hero-stamp">REWIND<br>YOUR<br>TIME!</div>
+                <div class="hero-decoration">▶</div>
+                <span class="hero-side-text">EST. 1999 — VOL. 01</span>
+            </div>
+
+            <div class="hero-footer">
+                <span>BOAS HISTÓRIAS MERECEM SER REVISTAS.</span>
+                <span>01 / 03</span>
+            </div>
+        </section>
+
+        <!-- FAIXA DE DESTAQUE -->
+        <div class="ticker">
+            <div>
+                ★ FILMES CLÁSSICOS ★ GAMES INCRÍVEIS
+                ★ SUA PRÓXIMA HISTÓRIA COMEÇA AQUI ★
+                FILMES CLÁSSICOS ★ GAMES INCRÍVEIS ★
+            </div>
+        </div>
+
+        <!-- CATÁLOGO -->
+        <section class="catalog-section" id="catalogo">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">ESCOLHA SUA PRÓXIMA AVENTURA</span>
+                    <h2>NOSSO <span>ACERVO.</span></h2>
+                </div>
+                <span class="catalog-count" id="catalogCount">00 ITENS</span>
+            </div>
+
+            <div class="catalog-tools">
+                <div class="search-box">
+                    <span>⌕</span>
+                    <input
+                        type="search"
+                        id="search"
+                        placeholder="Buscar filme ou jogo..."
+                    >
+                </div>
+
+                <div class="filters">
+                    <button class="filter active" data-filter="todos">TODOS</button>
+                    <button class="filter" data-filter="filme">FILMES</button>
+                    <button class="filter" data-filter="jogo">GAMES</button>
+                </div>
+            </div>
+
+            <div class="product-grid" id="catalog"></div>
+
+            <div class="empty-message" id="emptyMessage" hidden>
+                <h3>NENHUM RESULTADO ENCONTRADO.</h3>
+                <p>Tente procurar por outro título.</p>
+            </div>
+        </section>
+
+        <!-- SOBRE -->
+        <section class="about-section" id="sobre">
+            <div class="about-number">01</div>
+            <div>
+                <span class="eyebrow">MAIS QUE UMA LOCADORA</span>
+                <h2>UM LUGAR PARA<br>REVIVER <span>HISTÓRIAS.</span></h2>
+            </div>
+            <p>
+                A RE:WIND nasceu da paixão pelo cinema, pelos games
+                e por aquela sensação especial de escolher uma
+                história para levar para casa. Aqui, a nostalgia
+                encontra uma nova maneira de dar play.
+            </p>
+        </section>
+
+        <!-- RODAPÉ -->
+        <footer class="footer">
+            <a href="#inicio" class="logo">RE<span>:</span>WIND</a>
+            <p>REBOBINE O TEMPO. REVIVA A HISTÓRIA.</p>
+            <span>© 2026 RE:WIND LOCADORA</span>
+        </footer>
+    </main>
+
+    <!-- MODAL DE DETALHES -->
+    <div class="modal-overlay" id="detailsModal">
+        <div class="modal details-modal">
+            <button class="close-modal" data-close="detailsModal">×</button>
+            <div id="detailsContent"></div>
+        </div>
+    </div>
+
+    <!-- MODAL DO CARRINHO -->
+    <div class="modal-overlay" id="cartModal">
+        <div class="modal cart-modal">
+            <button class="close-modal" data-close="cartModal">×</button>
+
+            <span class="eyebrow">SUA SELEÇÃO</span>
+            <h2>MINHA <span>SACOLA.</span></h2>
+
+            <div id="cartItems"></div>
+
+            <div class="rental-days">
+                <label for="rentalDays">DIAS DE LOCAÇÃO</label>
+                <select id="rentalDays">
+                    <option value="1">1 dia</option>
+                    <option value="2">2 dias</option>
+                    <option value="3" selected>3 dias</option>
+                    <option value="5">5 dias</option>
+                    <option value="7">7 dias</option>
+                </select>
+            </div>
+
+            <div class="cart-total">
+                <span>TOTAL DA LOCAÇÃO</span>
+                <strong id="cartTotal">R$ 0,00</strong>
+            </div>
+
+            <button class="checkout-button" id="checkoutButton">
+                FINALIZAR LOCAÇÃO →
+            </button>
+        </div>
+    </div>
+
+    <!-- MODAL DE CONFIRMAÇÃO -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal success-modal">
+            <button class="close-modal" data-close="successModal">×</button>
+            <div class="success-icon">✓</div>
+            <span class="eyebrow">TUDO CERTO!</span>
+            <h2>LOCAÇÃO <span>CONFIRMADA.</span></h2>
+            <p id="successMessage"></p>
+            <button class="checkout-button" id="finishButton">
+                VOLTAR AO CATÁLOGO
+            </button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
