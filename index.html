@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RE:WIND — locadora retrô de filmes e jogos. Escolha suas histórias favoritas.">
+  <title>RE:WIND — Locadora Retrô</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topbar">
+    <a class="logo" href="#inicio" aria-label="RE:WIND, início">RE<span>:</span>WIND</a>
+
+    <button class="menu-toggle" id="menuToggle" type="button"
+      aria-label="Abrir menu" aria-expanded="false" aria-controls="mainNav">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="navigation" id="mainNav" aria-label="Navegação principal">
+      <a class="nav-link ativo" href="#inicio">Início</a>
+      <a class="nav-link" href="#catalogo">Catálogo</a>
+      <div class="dropdown">
+        <button class="dropdown-toggle" type="button" aria-expanded="false">Explorar ▾</button>
+        <div class="dropdown-menu">
+          <a href="#catalogo" data-nav-filter="filme">Filmes</a>
+          <a href="#catalogo" data-nav-filter="jogo">Games</a>
+          <a href="#regras">Como funciona</a>
+        </div>
+      </div>
+      <a class="nav-link" href="#reserva">Reservar</a>
+      <a class="nav-link" href="#sobre">Sobre</a>
+    </nav>
+
+    <button class="cart-button" id="openCart" type="button">
+      Minha sacola <span class="cart-number" id="cartCount" aria-live="polite">0</span>
+    </button>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" id="inicio" aria-labelledby="heroTitle">
+      <div class="hero-content">
+        <span class="eyebrow">LOCADORA • FILMES • GAMES</span>
+        <h1 id="heroTitle">O PASSADO<br>É O NOVO<br><span>PLAY.</span></h1>
+        <p>Grandes histórias nunca saem de moda. Escolha seu próximo favorito e aperte o play.</p>
+        <a class="hero-button" href="#catalogo">Explorar catálogo ↗</a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="hero-stamp">REWIND<br>YOUR<br>TIME!</div>
+        <span class="hero-decoration">▶</span>
+        <span class="hero-side-text">EST. 1999 — VOL. 01</span>
+      </div>
+      <div class="hero-footer">
+        <span>BOAS HISTÓRIAS MERECEM SER REVISTAS.</span>
+        <span>01 / 03</span>
+      </div>
+    </section>
+
+    <div class="ticker" aria-label="Filmes clássicos e games incríveis">
+      ★ FILMES CLÁSSICOS ★ GAMES INCRÍVEIS ★ SUA PRÓXIMA HISTÓRIA COMEÇA AQUI ★
+    </div>
+
+    <section class="catalog-section" id="catalogo" aria-labelledby="catalogTitle">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">ESCOLHA SUA PRÓXIMA AVENTURA</span>
+          <h2 id="catalogTitle">NOSSO <span>ACERVO.</span></h2>
+        </div>
+        <span class="catalog-count" id="catalogCount">09 ITENS</span>
+      </div>
+
+      <div class="catalog-tools">
+        <label class="search-box" for="search">
+          <span aria-hidden="true">⌕</span>
+          <input type="search" id="search" placeholder="Buscar filme ou jogo..." autocomplete="off">
+        </label>
+        <div class="filters" role="group" aria-label="Filtrar catálogo">
+          <button class="filter active" type="button" data-filter="todos" aria-pressed="true">Todos</button>
+          <button class="filter" type="button" data-filter="filme" aria-pressed="false">Filmes</button>
+          <button class="filter" type="button" data-filter="jogo" aria-pressed="false">Games</button>
+        </div>
+      </div>
+
+      <p class="live-summary" id="catalogSummary" aria-live="polite">Exibindo 9 itens do acervo.</p>
+      <div class="product-grid" id="catalog" aria-label="Produtos disponíveis"></div>
+      <p class="empty-message" id="emptyMessage" hidden>Nenhum resultado encontrado. Tente outra busca.</p>
+    </section>
+
+    <section class="insights-section" id="regras" aria-labelledby="insightsTitle">
+      <div>
+        <span class="eyebrow">DADOS DO NOSSO ACERVO</span>
+        <h2 id="insightsTitle">UM ACERVO, <span>DUAS FORMAS</span> DE VIAJAR.</h2>
+        <p>O gráfico mostra a quantidade de filmes e jogos cadastrados na RE:WIND.</p>
+      </div>
+      <div class="chart-wrap">
+        <svg id="catalogChart" viewBox="0 0 520 230" role="img" aria-labelledby="chartTitle chartDesc">
+          <title id="chartTitle">Distribuição do catálogo</title>
+          <desc id="chartDesc">Gráfico de barras comparando filmes e jogos.</desc>
+          <line x1="45" y1="185" x2="490" y2="185" class="chart-axis"></line>
+          <rect id="filmBar" x="115" y="65" width="90" height="120" rx="4" class="chart-bar film-bar"></rect>
+          <rect id="gameBar" x="310" y="85" width="90" height="100" rx="4" class="chart-bar game-bar"></rect>
+          <text x="160" y="210" text-anchor="middle" class="chart-label">FILMES</text>
+          <text x="355" y="210" text-anchor="middle" class="chart-label">GAMES</text>
+          <text id="filmValue" x="160" y="52" text-anchor="middle" class="chart-value">5</text>
+          <text id="gameValue" x="355" y="72" text-anchor="middle" class="chart-value">4</text>
+        </svg>
+      </div>
+    </section>
+
+    <section class="details-section" aria-labelledby="detailsTitle">
+      <div class="section-heading compact-heading">
+        <div>
+          <span class="eyebrow">INFORMAÇÕES DA LOCADORA</span>
+          <h2 id="detailsTitle">COMO <span>FUNCIONA.</span></h2>
+        </div>
+      </div>
+      <ul class="steps-list">
+        <li><strong>01 — Escolha</strong><span>Encontre um filme ou jogo no catálogo.</span></li>
+        <li><strong>02 — Reserve</strong><span>Adicione os títulos à sacola e escolha o período.</span></li>
+        <li><strong>03 — Aproveite</strong><span>Confira o resumo demonstrativo da sua locação.</span></li>
+      </ul>
+
+      <div class="table-wrap">
+        <table>
+          <caption>Exemplos de preços por período de locação</caption>
+          <thead><tr><th scope="col">Categoria</th><th scope="col">Período</th><th scope="col">Preço de referência</th></tr></thead>
+          <tbody>
+            <tr><td>Filme</td><td>3 dias</td><td>R$ 10,90 a R$ 13,90</td></tr>
+            <tr><td>Jogo</td><td>3 dias</td><td>R$ 19,90 a R$ 24,90</td></tr>
+            <tr><td>Filme ou jogo</td><td>7 dias</td><td>Valor proporcional</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="reservation-section" id="reserva" aria-labelledby="reservationTitle">
+      <div class="reservation-copy">
+        <span class="eyebrow">FAÇA SUA RESERVA</span>
+        <h2 id="reservationTitle">SUA PRÓXIMA<br><span>SESSÃO COMEÇA AQUI.</span></h2>
+        <p>Preencha os dados para simular uma solicitação de reserva. Este formulário é demonstrativo e não envia dados para um servidor.</p>
+        <figure class="media-card">
+          <video controls preload="metadata" poster="assets/images/video-poster.svg" aria-label="Vinheta visual da RE:WIND">
+            <!-- Duas codificações locais: o navegador escolhe a primeira compatível. -->
+            <source src="assets/media/rewind-teaser.mp4" type="video/mp4">
+            <source src="assets/media/rewind-teaser.webm" type="video/webm">
+            Seu navegador não oferece suporte ao vídeo. A RE:WIND agradece sua visita.
+          </video>
+          <figcaption>Vinheta visual da locadora — vídeo curto sem fala.</figcaption>
+        </figure>
+      </div>
+
+      <form id="reservationForm" class="reservation-form">
+        <fieldset>
+          <legend>Dados para contato</legend>
+          <div class="form-field">
+            <label for="customerName">Nome completo</label>
+            <input id="customerName" name="customerName" type="text" minlength="3" required>
+          </div>
+          <div class="form-field">
+            <label for="customerEmail">E-mail</label>
+            <input id="customerEmail" name="customerEmail" type="email" required>
+          </div>
+          <div class="form-field">
+            <label for="customerPhone">Telefone (somente números)</label>
+            <input id="customerPhone" name="customerPhone" type="tel" inputmode="numeric"
+              pattern="[0-9]{10,11}" placeholder="83999999999" required>
+          </div>
+          <div class="form-field">
+            <label for="reservationDate">Data desejada</label>
+            <input id="reservationDate" name="reservationDate" type="date" min="2026-01-01" required>
+          </div>
+          <div class="form-field">
+            <label for="reservationType">Tipo de item</label>
+            <select id="reservationType" name="reservationType">
+              <option value="filme">Filme</option>
+              <option value="jogo">Jogo</option>
+              <option value="ambos">Filme e jogo</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="reservationNote">Título desejado ou observação</label>
+            <textarea id="reservationNote" name="reservationNote" rows="3" maxlength="180"></textarea>
+          </div>
+          <button class="primary-button" type="submit">Enviar solicitação demonstrativa</button>
+          <p class="form-feedback" id="formFeedback" aria-live="polite"></p>
+        </fieldset>
+      </form>
+    </section>
+
+    <section class="about-section" id="sobre" aria-labelledby="aboutTitle">
+      <span class="about-number">01</span>
+      <div>
+        <span class="eyebrow">MAIS QUE UMA LOCADORA</span>
+        <h2 id="aboutTitle">UM LUGAR PARA<br>REVIVER <span>HISTÓRIAS.</span></h2>
+      </div>
+      <p>A RE:WIND nasceu da paixão pelo cinema, pelos games e por aquela sensação especial de escolher uma história para levar para casa. Aqui, a nostalgia encontra uma nova maneira de dar play.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="logo" href="#inicio">RE<span>:</span>WIND</a>
+    <p>REBOBINE O TEMPO. REVIVA A HISTÓRIA.</p>
+    <a href="https://letterboxd.com/" target="_blank" rel="noopener noreferrer">Explore o Letterboxd ↗</a>
+    <span>© 2026 RE:WIND LOCADORA — PROJETO ACADÊMICO</span>
+  </footer>
+
+  <dialog class="product-dialog" id="productDialog" aria-labelledby="dialogTitle">
+    <button class="dialog-close" type="button" id="closeDetails" aria-label="Fechar detalhes">×</button>
+    <div id="dialogContent"></div>
+  </dialog>
+
+  <dialog class="cart-dialog" id="cartDialog" aria-labelledby="cartTitle">
+    <button class="dialog-close" type="button" id="closeCart" aria-label="Fechar sacola">×</button>
+    <span class="eyebrow">SUA SELEÇÃO</span>
+    <h2 id="cartTitle">MINHA <span>SACOLA.</span></h2>
+    <div id="cartItems"></div>
+    <div class="rental-days">
+      <label for="rentalDays">Dias de locação</label>
+      <select id="rentalDays">
+        <option value="1">1 dia</option><option value="3" selected>3 dias</option>
+        <option value="5">5 dias</option><option value="7">7 dias</option>
+      </select>
+    </div>
+    <p class="cart-total">Total demonstrativo: <strong id="cartTotal">R$ 0,00</strong></p>
+    <button class="primary-button" id="checkoutButton" type="button">Finalizar simulação</button>
+    <p class="live-summary" id="cartSummary" aria-live="polite"></p>
+  </dialog>
+</body>
+</html>

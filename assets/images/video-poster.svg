@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t d">
+<title id="t">Vinheta RE:WIND</title><desc id="d">Fundo verde com letras RE:WIND e símbolo de play.</desc>
+<rect width="960" height="540" fill="#247b45"/>
+<rect x="260" y="95" width="440" height="350" fill="none" stroke="#fff" stroke-width="8" transform="rotate(-4 480 270)"/>
+<text x="480" y="245" text-anchor="middle" font-family="Arial,sans-serif" font-size="92" font-weight="bold" fill="#fff">RE:WIND</text>
+<path d="M430 300 L430 390 L520 345 Z" fill="#ffdf61"/>
+<text x="480" y="475" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" letter-spacing="6" fill="#fff">REBOBINE O TEMPO</text>
+</svg>
